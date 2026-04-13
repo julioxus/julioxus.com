@@ -1,0 +1,104 @@
+---
+import { t } from '@i18n/utils';
+import type { Locale } from '@i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section id="contact" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 animate-on-scroll">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text-primary mb-4">{t('contact.title', locale)}</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto">{t('contact.subtitle', locale)}</p>
+    </div>
+
+    <div class="max-w-2xl mx-auto animate-on-scroll">
+      <form
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        class="space-y-5"
+      >
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="name" class="block text-sm font-medium text-text-primary mb-1.5">{t('contact.name', locale)}</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2.5 bg-bg-secondary border border-border rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-text-primary mb-1.5">{t('contact.email', locale)}</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2.5 bg-bg-secondary border border-border rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="company" class="block text-sm font-medium text-text-primary mb-1.5">{t('contact.company', locale)}</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            class="w-full px-4 py-2.5 bg-bg-secondary border border-border rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="service" class="block text-sm font-medium text-text-primary mb-1.5">{t('contact.service', locale)}</label>
+          <select
+            id="service"
+            name="service"
+            class="w-full px-4 py-2.5 bg-bg-secondary border border-border rounded-lg text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+          >
+            <option value="pentesting">{t('contact.service.pentest', locale)}</option>
+            <option value="consulting">{t('contact.service.consulting', locale)}</option>
+            <option value="training">{t('contact.service.training', locale)}</option>
+            <option value="other">{t('contact.service.other', locale)}</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-text-primary mb-1.5">{t('contact.message', locale)}</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="w-full px-4 py-2.5 bg-bg-secondary border border-border rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-y"
+          ></textarea>
+        </div>
+
+        <!-- Honeypot for spam -->
+        <div class="hidden" aria-hidden="true">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full px-6 py-3 bg-accent text-bg-primary font-semibold rounded-lg hover:bg-accent-hover transition-all hover:shadow-lg hover:shadow-accent/20"
+        >
+          {t('contact.send', locale)}
+        </button>
+      </form>
+
+      <div class="mt-8 text-center">
+        <p class="text-text-muted text-sm mb-2">{t('contact.or', locale)}</p>
+        <a href="mailto:jmcheca93@gmail.com" class="text-accent hover:text-accent-hover transition-colors font-medium">
+          jmcheca93@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

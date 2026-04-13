@@ -1,0 +1,100 @@
+---
+import { t } from '@i18n/utils';
+import type { Locale } from '@i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const services = [
+  {
+    titleKey: 'services.pentest.title' as const,
+    descKey: 'services.pentest.desc' as const,
+    itemsKey: 'services.pentest.items' as const,
+    icon: 'M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z',
+    color: 'accent',
+  },
+  {
+    titleKey: 'services.consulting.title' as const,
+    descKey: 'services.consulting.desc' as const,
+    itemsKey: 'services.consulting.items' as const,
+    icon: 'M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155',
+    color: 'accent-secondary',
+  },
+  {
+    titleKey: 'services.secdev.title' as const,
+    descKey: 'services.secdev.desc' as const,
+    itemsKey: 'services.secdev.items' as const,
+    icon: 'M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5',
+    color: 'accent',
+  },
+  {
+    titleKey: 'services.training.title' as const,
+    descKey: 'services.training.desc' as const,
+    itemsKey: 'services.training.items' as const,
+    icon: 'M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5',
+    color: 'accent-secondary',
+  },
+];
+
+const engagementModels = [
+  { titleKey: 'services.engagement.project.title' as const, descKey: 'services.engagement.project.desc' as const, icon: 'M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z' },
+  { titleKey: 'services.engagement.retainer.title' as const, descKey: 'services.engagement.retainer.desc' as const, icon: 'M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3' },
+  { titleKey: 'services.engagement.daily.title' as const, descKey: 'services.engagement.daily.desc' as const, icon: 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' },
+];
+---
+
+<section id="services" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text-primary mb-4">{t('services.title', locale)}</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto">{t('services.subtitle', locale)}</p>
+    </div>
+
+    <!-- Service Cards -->
+    <div class="grid md:grid-cols-2 gap-6 mb-16">
+      {services.map(service => (
+        <div class="group p-6 bg-bg-secondary border border-border rounded-xl hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-glow animate-on-scroll">
+          <div class={`inline-flex items-center justify-center w-12 h-12 rounded-lg mb-4 ${service.color === 'accent' ? 'bg-accent/10' : 'bg-accent-secondary/10'}`}>
+            <svg class={`w-6 h-6 ${service.color === 'accent' ? 'text-accent' : 'text-accent-secondary'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon} />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-text-primary mb-3">{t(service.titleKey, locale)}</h3>
+          <p class="text-text-secondary text-sm mb-4">{t(service.descKey, locale)}</p>
+          <ul class="space-y-2">
+            {t(service.itemsKey, locale).split(',').map(item => (
+              <li class="flex items-start gap-2 text-sm text-text-muted">
+                <svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item.trim()}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Engagement Models -->
+    <div class="animate-on-scroll">
+      <h3 class="text-2xl font-bold text-text-primary text-center mb-3">{t('services.engagement.title', locale)}</h3>
+      <p class="text-text-secondary text-center mb-8">{t('services.engagement.subtitle', locale)}</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        {engagementModels.map(model => (
+          <div class="p-5 bg-bg-secondary/50 border border-border rounded-lg text-center">
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-accent/10 mb-3">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={model.icon} />
+              </svg>
+            </div>
+            <h4 class="font-semibold text-text-primary mb-2">{t(model.titleKey, locale)}</h4>
+            <p class="text-sm text-text-muted">{t(model.descKey, locale)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/sections/Hero.astro';
+import Metrics from '@components/sections/Metrics.astro';
+import Services from '@components/sections/Services.astro';
+import AIServices from '@components/sections/AIServices.astro';
+import About from '@components/sections/About.astro';
+import Certifications from '@components/sections/Certifications.astro';
+import Skills from '@components/sections/Skills.astro';
+import Speaking from '@components/sections/Speaking.astro';
+import Contact from '@components/sections/Contact.astro';
+
+const locale = 'es' as const;
+---
+
+<BaseLayout
+  title="Julio Martinez - Servicios de Ciberseguridad con IA | Pentesting, Consultoría y Formación"
+  description="Ingeniero de Seguridad de Aplicaciones con 8+ años de experiencia. Certificado OSCP y C-AI/MLPen. Servicios profesionales de pentesting, consultoría de seguridad y formación en ciberseguridad."
+>
+  <Hero locale={locale} />
+  <Metrics locale={locale} />
+  <Services locale={locale} />
+  <AIServices locale={locale} />
+  <About locale={locale} />
+  <Certifications locale={locale} />
+  <Skills locale={locale} />
+  <Speaking locale={locale} />
+  <Contact locale={locale} />
+</BaseLayout>

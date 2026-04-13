@@ -1,0 +1,59 @@
+---
+import { t } from '@i18n/utils';
+import { experience } from '@data/experience';
+import type { Locale } from '@i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section id="about" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text-primary mb-4">{t('about.title', locale)}</h2>
+    </div>
+
+    <!-- Bio -->
+    <div class="max-w-3xl mx-auto mb-16 space-y-4 animate-on-scroll">
+      <p class="text-text-secondary leading-relaxed">{t('about.bio', locale)}</p>
+      <p class="text-text-secondary leading-relaxed">{t('about.bio2', locale)}</p>
+      <p class="text-text-secondary leading-relaxed">{t('about.bio3', locale)}</p>
+    </div>
+
+    <!-- Experience Timeline -->
+    <div class="animate-on-scroll">
+      <h3 class="text-2xl font-bold text-text-primary text-center mb-10">{t('experience.title', locale)}</h3>
+
+      <div class="relative max-w-3xl mx-auto">
+        <!-- Timeline line -->
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-border"></div>
+
+        {experience.map((exp, i) => (
+          <div class={`relative flex items-start mb-8 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+            <!-- Timeline dot -->
+            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-accent border-2 border-bg-primary z-10 mt-5"></div>
+
+            <!-- Card -->
+            <div class={`ml-10 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:mr-auto md:pr-0 md:pl-0' : 'md:ml-auto md:pl-0'} ${i % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
+              <div class="p-4 bg-bg-secondary border border-border rounded-lg hover:border-accent/20 transition-colors">
+                <div class="text-sm text-accent font-medium mb-1">
+                  {t(`experience.${exp.key}.period` as any, locale)}
+                </div>
+                <h4 class="font-semibold text-text-primary">
+                  {t(`experience.${exp.key}.role` as any, locale)}
+                </h4>
+                <p class="text-sm text-text-muted mb-2">{exp.company} &middot; {exp.location}</p>
+                <p class="text-sm text-text-secondary">
+                  {t(`experience.${exp.key}.desc` as any, locale)}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

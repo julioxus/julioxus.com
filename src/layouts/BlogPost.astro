@@ -1,0 +1,85 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { t } from '@i18n/utils';
+import type { Locale } from '@i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  tags: string[];
+  locale: Locale;
+}
+
+const { title, description, date, tags, locale } = Astro.props;
+const formattedDate = new Date(date).toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const blogPath = locale === 'en' ? '/blog' : '/es/blog';
+---
+
+<BaseLayout title={`${title} | Julio Martinez`} description={description}>
+  <article class="pt-24 pb-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Back link -->
+      <a href={blogPath} class="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-hover transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        {t('blog.back', locale)}
+      </a>
+
+      <!-- Header -->
+      <header class="mb-10">
+        <div class="flex flex-wrap gap-2 mb-4">
+          {tags.map(tag => (
+            <span class="px-2 py-0.5 text-xs font-medium bg-accent/10 text-accent rounded-full">{tag}</span>
+          ))}
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-text-primary mb-4 leading-tight">{title}</h1>
+        <div class="flex items-center gap-3 text-sm text-text-muted">
+          <span>{formattedDate}</span>
+          <span>&middot;</span>
+          <span>Julio Martinez</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-invert prose-lg max-w-none
+        prose-headings:text-text-primary prose-headings:font-bold
+        prose-p:text-text-secondary prose-p:leading-relaxed
+        prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+        prose-strong:text-text-primary
+        prose-code:text-accent prose-code:bg-bg-secondary prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+        prose-pre:bg-bg-secondary prose-pre:border prose-pre:border-border
+        prose-li:text-text-secondary
+        prose-ol:text-text-secondary
+        prose-ul:text-text-secondary
+        prose-blockquote:border-accent prose-blockquote:text-text-muted
+        prose-hr:border-border
+        prose-h2:mt-10 prose-h2:mb-4
+        prose-h3:mt-8 prose-h3:mb-3
+      ">
+        <slot />
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-16 p-6 bg-bg-secondary border border-border rounded-xl text-center">
+        <p class="text-text-primary font-semibold mb-2">
+          {locale === 'en' ? 'Interested in securing your applications?' : 'Interesado en asegurar tus aplicaciones?'}
+        </p>
+        <p class="text-text-muted text-sm mb-4">
+          {locale === 'en' ? 'Get a free initial consultation.' : 'Obtén una consulta inicial gratuita.'}
+        </p>
+        <a
+          href={locale === 'en' ? '/#contact' : '/es/#contact'}
+          class="inline-flex items-center px-5 py-2.5 bg-accent text-bg-primary font-semibold rounded-lg hover:bg-accent-hover transition-all text-sm"
+        >
+          {t('hero.cta.primary', locale)}
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+import { t } from '@i18n/utils';
+import type { Locale } from '@i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-bg-primary via-bg-primary to-bg-secondary"></div>
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-secondary/5 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text -->
+      <div class="order-2 lg:order-1">
+        <p class="text-accent font-medium mb-4 animate-on-scroll">{t('hero.greeting', locale)}</p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-6 animate-on-scroll">
+          {t('hero.title', locale)}
+        </h1>
+        <p class="text-lg text-text-secondary mb-8 max-w-xl animate-on-scroll">
+          {t('hero.subtitle', locale)}
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-10 animate-on-scroll">
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center px-6 py-3 bg-accent text-bg-primary font-semibold rounded-lg hover:bg-accent-hover transition-all hover:shadow-lg hover:shadow-accent/20"
+          >
+            {t('hero.cta.primary', locale)}
+          </a>
+          <a
+            href="#services"
+            class="inline-flex items-center justify-center px-6 py-3 border border-accent text-accent font-semibold rounded-lg hover:bg-accent/10 transition-all"
+          >
+            {t('hero.cta.secondary', locale)}
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap gap-3 animate-on-scroll">
+          {['OSCP', 'C-AI/MLPen', 'CAPen', 'AWS Security'].map(cert => (
+            <span class="px-3 py-1 text-xs font-medium bg-bg-secondary border border-border rounded-full text-text-muted">
+              {cert}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Avatar placeholder -->
+      <div class="order-1 lg:order-2 flex justify-center animate-on-scroll">
+        <div class="relative">
+          <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center border border-border">
+            <div class="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-bg-secondary flex items-center justify-center">
+              <svg class="w-24 h-24 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>
+            </div>
+          </div>
+          <!-- Decorative ring -->
+          <div class="absolute inset-0 rounded-full border border-accent/20 animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

@@ -1,0 +1,142 @@
+---
+import '@styles/global.css';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+import { getLocaleFromUrl, getLocalizedPath, getAlternateLocale } from '@i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const altLocale = getAlternateLocale(locale);
+const currentPath = Astro.url.pathname;
+const altPath = getLocalizedPath(currentPath.replace(/^\/(es\/)?/, '/'), altLocale);
+const canonicalUrl = new URL(currentPath, Astro.site).href;
+const altUrl = new URL(altPath, Astro.site).href;
+const defaultUrl = new URL('/', Astro.site).href;
+---
+
+<!doctype html>
+<html lang={locale} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href={locale === 'en' ? canonicalUrl : altUrl} />
+    <link rel="alternate" hreflang="es" href={locale === 'es' ? canonicalUrl : altUrl} />
+    <link rel="alternate" hreflang="x-default" href={defaultUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Julio Martinez - Cybersecurity" />
+    <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_ES'} />
+    <meta property="og:locale:alternate" content={locale === 'en' ? 'es_ES' : 'en_US'} />
+    <meta property="og:type" content="website" />
+    {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site).href} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Schema.org Person -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Julio Martinez Martinez-Checa",
+      "jobTitle": "Application Security Engineer",
+      "url": "https://julioxus.com",
+      "sameAs": [
+        "https://linkedin.com/in/julio-mart%C3%ADnez-mart%C3%ADnez-checa-91758596",
+        "https://github.com/julioxus",
+        "https://app.intigriti.com/researcher/profile/julioxus"
+      ],
+      "knowsAbout": ["Penetration Testing", "Application Security", "AI/ML Security", "Cloud Security", "DevSecOps"],
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Universidad Carlos III de Madrid" },
+        { "@type": "CollegeOrUniversity", "name": "Universidad de Granada" }
+      ],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "OSCP", "credentialCategory": "Professional Certification" },
+        { "@type": "EducationalOccupationalCredential", "name": "C-AI/MLPen", "credentialCategory": "Professional Certification" },
+        { "@type": "EducationalOccupationalCredential", "name": "CAPen", "credentialCategory": "Professional Certification" },
+        { "@type": "EducationalOccupationalCredential", "name": "AWS Security Specialty", "credentialCategory": "Professional Certification" }
+      ]
+    })} />
+
+    <!-- ProfessionalService Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Julio Martinez - Cybersecurity Services",
+      "description": "Professional penetration testing, security consulting, and AI-enhanced cybersecurity training services.",
+      "url": "https://julioxus.com",
+      "areaServed": ["ES", "EU", "US"],
+      "serviceType": ["Penetration Testing", "Security Consulting", "Cybersecurity Training"],
+      "founder": { "@type": "Person", "name": "Julio Martinez Martinez-Checa" }
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header locale={locale} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+
+    <!-- Language auto-detection -->
+    <script is:inline>
+      (function() {
+        if (document.cookie.includes('lang-pref=')) return;
+        var lang = navigator.language || navigator.userLanguage || '';
+        var isSpanish = lang.startsWith('es');
+        var onSpanish = location.pathname.startsWith('/es');
+        if (isSpanish && !onSpanish) {
+          document.cookie = 'lang-pref=es;path=/;max-age=31536000;SameSite=Lax';
+          location.replace('/es' + location.pathname);
+        }
+      })();
+    </script>
+
+    <!-- Scroll animations -->
+    <script is:inline>
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

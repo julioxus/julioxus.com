@@ -1,0 +1,121 @@
+---
+import { t, getLocalizedPath, getAlternateLocale } from '@i18n/utils';
+import type { Locale } from '@i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const altLocale = getAlternateLocale(locale);
+const basePath = locale === 'en' ? '' : '/es';
+
+const navItems = [
+  { key: 'nav.services' as const, href: '#services' },
+  { key: 'nav.ai' as const, href: '#ai-security' },
+  { key: 'nav.about' as const, href: '#about' },
+  { key: 'nav.certifications' as const, href: '#certifications' },
+  { key: 'nav.blog' as const, href: `${basePath}/blog` },
+  { key: 'nav.contact' as const, href: '#contact' },
+];
+
+const currentPath = Astro.url.pathname.replace(/^\/(es\/)?/, '/');
+const altPath = getLocalizedPath(currentPath, altLocale);
+---
+
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href={locale === 'en' ? '/' : '/es/'} class="text-text-primary font-bold text-xl tracking-tight hover:text-accent transition-colors">
+        julioxus<span class="text-accent">.com</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class="text-sm text-text-secondary hover:text-accent transition-colors"
+          >
+            {t(item.key, locale)}
+          </a>
+        ))}
+
+        <!-- Language Switcher -->
+        <a
+          href={altPath}
+          class="text-sm font-medium px-3 py-1 rounded-md border border-border text-text-secondary hover:text-accent hover:border-accent/30 transition-all"
+          onclick={`document.cookie='lang-pref=${altLocale};path=/;max-age=31536000;SameSite=Lax'`}
+        >
+          {altLocale === 'es' ? 'ES' : 'EN'}
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-text-secondary hover:text-accent transition-colors p-2"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="md:hidden hidden pb-4">
+      <div class="flex flex-col gap-3 pt-2 border-t border-border">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class="text-text-secondary hover:text-accent transition-colors py-1"
+          >
+            {t(item.key, locale)}
+          </a>
+        ))}
+        <a
+          href={altPath}
+          class="text-sm font-medium px-3 py-1.5 rounded-md border border-border text-text-secondary hover:text-accent hover:border-accent/30 transition-all w-fit"
+          onclick={`document.cookie='lang-pref=${altLocale};path=/;max-age=31536000;SameSite=Lax'`}
+        >
+          {altLocale === 'es' ? '🇪🇸 Español' : '🇬🇧 English'}
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  // Mobile menu toggle
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var icon = document.getElementById('menu-icon');
+  btn.addEventListener('click', function() {
+    var open = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!open));
+    icon.setAttribute('d', open ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12');
+  });
+
+  // Close mobile menu on anchor click
+  menu.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    });
+  });
+
+  // Header background on scroll
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      header.classList.add('bg-bg-primary/95', 'backdrop-blur-md', 'border-b', 'border-border');
+    } else {
+      header.classList.remove('bg-bg-primary/95', 'backdrop-blur-md', 'border-b', 'border-border');
+    }
+  }, { passive: true });
+</script>

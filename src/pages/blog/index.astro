@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { t } from '@i18n/utils';
+
+const locale = 'en' as const;
+const posts = (await getCollection('blog', ({ data }) => data.locale === 'en' && !data.draft))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout
+  title="Blog | Julio Martinez - Cybersecurity Insights"
+  description="Insights on cybersecurity, AI-powered pentesting, secure development, and application security from Julio Martinez."
+>
+  <section class="pt-24 pb-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h1 class="text-3xl sm:text-4xl font-bold text-text-primary mb-4">{t('blog.title', locale)}</h1>
+        <p class="text-text-secondary max-w-2xl mx-auto">{t('blog.subtitle', locale)}</p>
+      </div>
+
+      <div class="space-y-6">
+        {posts.map(post => {
+          const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+          return (
+            <a href={`/blog/${post.id.replace('en/', '')}`} class="block group p-6 bg-bg-secondary border border-border rounded-xl hover:border-accent/30 transition-all duration-300">
+              <div class="flex flex-wrap gap-2 mb-3">
+                {post.data.tags.map(tag => (
+                  <span class="px-2 py-0.5 text-xs font-medium bg-accent/10 text-accent rounded-full">{tag}</span>
+                ))}
+              </div>
+              <h2 class="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors mb-2">
+                {post.data.title}
+              </h2>
+              <p class="text-text-muted text-sm mb-3">{post.data.description}</p>
+              <span class="text-xs text-text-muted">{formattedDate}</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
