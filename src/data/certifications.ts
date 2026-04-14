@@ -4,7 +4,7 @@ export const certifications = [
     fullName: 'Offensive Security Certified Professional',
     issuer: 'Offensive Security',
     year: 2018,
-    url: 'https://www.offensive-security.com/information-security-certifications/oscp-offensive-security-certified-professional/',
+    url: 'https://www.offsec.com/courses/pen-200/',
     category: 'offensive',
   },
   {
@@ -52,7 +52,7 @@ export const certifications = [
     fullName: 'ITIL 4 Foundation',
     issuer: 'Axelos',
     year: 2020,
-    url: 'https://www.axelos.com/certifications/itil-certifications/itil-foundation',
+    url: 'https://www.peoplecert.org/itil-4-foundation',
     category: 'management',
   },
 ] as const;
