@@ -10,7 +10,7 @@ export default {
   // Hero
   'hero.greeting': "Hi, I'm Julio",
   'hero.title': 'Securing Your Digital Future with AI-Powered Expertise',
-  'hero.subtitle': 'Security Engineer with 8+ years of experience in penetration testing, security consulting, and AI-enhanced cybersecurity. OSCP & C-AI/MLPen certified.',
+  'hero.subtitle': 'Security Engineer with 10+ years of experience in penetration testing, security consulting, and AI-enhanced cybersecurity. OSCP & C-AI/MLPen certified.',
   'hero.cta.primary': 'Book a Free Consultation',
   'hero.cta.secondary': 'View Services',
 
@@ -60,7 +60,7 @@ export default {
 
   // About
   'about.title': 'About Me',
-  'about.bio': "I'm Julio Martinez, an Security Engineer based in Malaga, Spain, with 8+ years of hands-on experience securing digital products for leading tech companies. I specialize in penetration testing, security consulting, and building security into the development lifecycle.",
+  'about.bio': "I'm Julio Martinez, a Security Engineer based in Malaga, Spain, with 10+ years of hands-on experience securing digital products for leading tech companies. I specialize in penetration testing, security consulting, and building security into the development lifecycle.",
   'about.bio2': "My career has taken me from identity management in the defense sector to offensive security at a global IT consultancy, vulnerability management at a major telecom operator, and currently working as a Senior Security Engineer at a leading tech platform. This diverse background gives me a unique perspective that combines offensive security skills with a deep understanding of how engineering teams build and ship software.",
   'about.bio3': "I use AI as a force multiplier — not a shortcut. As a certified AI/ML pentester, I leverage tools like Claude Code and custom AI agents to reduce timelines and expand coverage, but every finding, every report, and every recommendation is verified and validated by me. No slop, no auto-generated filler — just high-impact results backed by human expertise.",
 

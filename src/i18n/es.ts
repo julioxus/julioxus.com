@@ -10,7 +10,7 @@ export default {
   // Hero
   'hero.greeting': 'Hola, soy Julio',
   'hero.title': 'Asegurando Tu Futuro Digital con Experiencia Potenciada por IA',
-  'hero.subtitle': 'Ingeniero de Seguridad con 8+ años de experiencia en pentesting, consultoría de seguridad y ciberseguridad potenciada por IA. Certificado OSCP y C-AI/MLPen.',
+  'hero.subtitle': 'Ingeniero de Seguridad con 10+ años de experiencia en pentesting, consultoría de seguridad y ciberseguridad potenciada por IA. Certificado OSCP y C-AI/MLPen.',
   'hero.cta.primary': 'Reserva una Consulta Gratuita',
   'hero.cta.secondary': 'Ver Servicios',
 
@@ -60,7 +60,7 @@ export default {
 
   // About
   'about.title': 'Sobre Mi',
-  'about.bio': 'Soy Julio Martinez, Ingeniero de Seguridad en Málaga, España, con 8+ años de experiencia práctica asegurando productos digitales para empresas tecnológicas líderes. Me especializo en pentesting, consultoría de seguridad e integración de la seguridad en el ciclo de desarrollo.',
+  'about.bio': 'Soy Julio Martinez, Ingeniero de Seguridad en Málaga, España, con 10+ años de experiencia práctica asegurando productos digitales para empresas tecnológicas líderes. Me especializo en pentesting, consultoría de seguridad e integración de la seguridad en el ciclo de desarrollo.',
   'about.bio2': 'Mi carrera me ha llevado desde la gestión de identidades en el sector defensa hasta la seguridad ofensiva en una consultora IT global, gestión de vulnerabilidades en un gran operador de telecomunicaciones, y actualmente como Ingeniero de Seguridad Senior en una plataforma tecnológica líder. Esta trayectoria diversa me da una perspectiva única que combina habilidades ofensivas con una comprensión profunda de cómo los equipos de ingeniería construyen y despliegan software.',
   'about.bio3': 'Utilizo la IA como multiplicador de fuerza, no como atajo. Como pentester certificado en IA/ML, aprovecho herramientas como Claude Code y agentes de IA personalizados para reducir tiempos y ampliar la cobertura, pero cada hallazgo, cada informe y cada recomendación está verificado y validado por mí. Sin contenido generado automáticamente ni relleno — solo resultados de alto impacto respaldados por experiencia humana.',
 
