@@ -25,7 +25,8 @@ const defaultUrl = new URL('/', Astro.site).href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -121,7 +122,7 @@ const defaultUrl = new URL('/', Astro.site).href;
         var isSpanish = lang.startsWith('es');
         var onSpanish = location.pathname.startsWith('/es');
         if (isSpanish && !onSpanish) {
-          document.cookie = 'lang-pref=es;path=/;max-age=31536000;SameSite=Lax';
+          document.cookie = 'lang-pref=es;path=/;max-age=31536000;SameSite=Lax;Secure';
           location.replace('/es' + location.pathname);
         }
       })();

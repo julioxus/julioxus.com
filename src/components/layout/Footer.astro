@@ -59,7 +59,7 @@ const altPath = getLocalizedPath('/', altLocale);
           <a
             href={altPath}
             class="text-sm text-text-muted hover:text-accent transition-colors"
-            onclick={`document.cookie='lang-pref=${altLocale};path=/;max-age=31536000;SameSite=Lax'`}
+            onclick={`document.cookie='lang-pref=${altLocale};path=/;max-age=31536000;SameSite=Lax;Secure'`}
           >
             {altLocale === 'es' ? '🇪🇸 Español' : '🇬🇧 English'}
           </a>

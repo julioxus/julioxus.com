@@ -45,7 +45,7 @@ const altPath = getLocalizedPath(currentPath, altLocale);
         <a
           href={altPath}
           class="text-sm font-medium px-3 py-1 rounded-md border border-border text-text-secondary hover:text-accent hover:border-accent/30 transition-all"
-          onclick={`document.cookie='lang-pref=${altLocale};path=/;max-age=31536000;SameSite=Lax'`}
+          onclick={`document.cookie='lang-pref=${altLocale};path=/;max-age=31536000;SameSite=Lax;Secure'`}
         >
           {altLocale === 'es' ? '🇪🇸 ES' : '🇬🇧 EN'}
         </a>
@@ -78,7 +78,7 @@ const altPath = getLocalizedPath(currentPath, altLocale);
         <a
           href={altPath}
           class="text-sm font-medium px-3 py-1.5 rounded-md border border-border text-text-secondary hover:text-accent hover:border-accent/30 transition-all w-fit"
-          onclick={`document.cookie='lang-pref=${altLocale};path=/;max-age=31536000;SameSite=Lax'`}
+          onclick={`document.cookie='lang-pref=${altLocale};path=/;max-age=31536000;SameSite=Lax;Secure'`}
         >
           {altLocale === 'es' ? '🇪🇸 Español' : '🇬🇧 English'}
         </a>
