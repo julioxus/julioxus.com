@@ -52,15 +52,18 @@ const { locale } = Astro.props;
         </div>
       </div>
 
-      <!-- Avatar placeholder -->
+      <!-- Hero photo -->
       <div class="order-1 lg:order-2 flex justify-center animate-on-scroll">
         <div class="relative">
-          <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center border border-border">
-            <div class="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-bg-secondary flex items-center justify-center">
-              <svg class="w-24 h-24 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-              </svg>
-            </div>
+          <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-accent/20 to-accent-secondary/20 p-1 border border-border">
+            <img
+              src="/images/julio-hero.jpg"
+              alt="Julio Martinez speaking at Cybercamp"
+              class="w-full h-full rounded-full object-cover"
+              width="640"
+              height="640"
+              loading="eager"
+            />
           </div>
           <!-- Decorative ring -->
           <div class="absolute inset-0 rounded-full border border-accent/20 animate-pulse"></div>

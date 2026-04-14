@@ -10,7 +10,7 @@ export default {
   // Hero
   'hero.greeting': 'Hola, soy Julio',
   'hero.title': 'Asegurando Tu Futuro Digital con Experiencia Potenciada por IA',
-  'hero.subtitle': 'Ingeniero de Seguridad de Aplicaciones con 8+ años de experiencia en pentesting, consultoría de seguridad y ciberseguridad potenciada por IA. Certificado OSCP y C-AI/MLPen.',
+  'hero.subtitle': 'Ingeniero de Seguridad con 8+ años de experiencia en pentesting, consultoría de seguridad y ciberseguridad potenciada por IA. Certificado OSCP y C-AI/MLPen.',
   'hero.cta.primary': 'Reserva una Consulta Gratuita',
   'hero.cta.secondary': 'Ver Servicios',
 
@@ -18,7 +18,6 @@ export default {
   'metrics.years': 'Años de Experiencia',
   'metrics.certs': 'Certificaciones',
   'metrics.companies': 'Empresas Aseguradas',
-  'metrics.speaker': 'Ponente en Congresos',
 
   // Services
   'services.title': 'Servicios',
@@ -33,7 +32,7 @@ export default {
   'services.secdev.desc': 'Herramientas de seguridad, plataformas internas y aplicaciones construidas con seguridad integrada desde el primer día. Desarrollo full-stack con mentalidad de seguridad ofensiva.',
   'services.secdev.items': 'Herramientas de Seguridad y Automatización,Aplicaciones Web con Security by Design,Desarrollo de APIs con Auth y Control de Acceso,Dashboards de Seguridad con IA,Plataformas de Seguridad Internas',
   'services.training.title': 'Formación y Cursos',
-  'services.training.desc': 'Formación práctica en ciberseguridad diseñada para capacitar a tu equipo. Desde desarrollo seguro hasta concienciación en seguridad IA/ML.',
+  'services.training.desc': 'Formación práctica en ciberseguridad diseñada para capacitar a tu equipo. Desde desarrollo seguro hasta concienciación en seguridad IA/ML. Ya imparto formación técnica y de concienciación para empresas que confían en mí para capacitar a sus equipos.',
   'services.training.items': 'Talleres de Desarrollo Seguro,Formación OWASP Top 10,Concienciación en Seguridad IA/ML,Ejercicios CTF estilo Red Team,Formación Corporativa Personalizada',
 
   // Engagement models
@@ -48,8 +47,8 @@ export default {
 
   // AI Section
   'ai.title': 'Seguridad Potenciada por IA',
-  'ai.subtitle': 'Aprovechando la inteligencia artificial para ofrecer evaluaciones de seguridad más rápidas, profundas y con mayor impacto',
-  'ai.intro': 'Como uno de los primeros Pentesters certificados en IA/ML de España (C-AI/MLPen), combino experiencia en seguridad ofensiva tradicional con herramientas de IA de vanguardia para entregar resultados que van más allá, más rápido.',
+  'ai.subtitle': 'Seguridad aumentada con IA, bien hecha — plazos más cortos, mayor cobertura, cada resultado verificado manualmente',
+  'ai.intro': 'Como Pentester certificado en IA/ML (C-AI/MLPen), utilizo la IA para amplificar mi experiencia en seguridad ofensiva, no para reemplazarla. El resultado: plazos de engagement más cortos, mayor cobertura de la superficie de ataque y entregables de alta calidad sin relleno autogenerado. Cada hallazgo es revisado y validado por un humano.',
   'ai.benefit1.title': 'Descubrimiento de Vulnerabilidades con IA',
   'ai.benefit1.desc': 'Los agentes de IA aceleran el reconocimiento y la detección de patrones, descubriendo vulnerabilidades que el testing manual por sí solo podría pasar por alto.',
   'ai.benefit2.title': 'Evaluación de Seguridad de Modelos ML',
@@ -57,31 +56,31 @@ export default {
   'ai.benefit3.title': 'Testing de Seguridad LLM',
   'ai.benefit3.desc': 'Evaluación de seguridad de integraciones con Large Language Models, incluyendo prompt injection, fuga de datos y bypass de controles de acceso.',
   'ai.benefit4.title': 'Flujos de Seguridad Automatizados',
-  'ai.benefit4.desc': 'Herramientas personalizadas potenciadas por IA y pipelines automatizados que mejoran las capacidades de detección y reducen el tiempo de hallazgo.',
+  'ai.benefit4.desc': 'Herramientas personalizadas potenciadas por IA y pipelines automatizados que reducen el tiempo de hallazgo — con cada resultado revisado y certificado por un profesional de seguridad antes de su entrega.',
 
   // About
   'about.title': 'Sobre Mi',
-  'about.bio': 'Soy Julio Martinez, Ingeniero de Seguridad de Aplicaciones con base en Málaga, España, con 8+ años de experiencia práctica asegurando productos digitales para empresas tecnológicas líderes. Me especializo en pentesting, consultoría de seguridad e integración de la seguridad en el ciclo de desarrollo.',
-  'about.bio2': 'Mi carrera me ha llevado desde la gestión de identidades en el sector defensa hasta la seguridad ofensiva en el Tiger Team de una consultora IT global, gestión de vulnerabilidades en un gran operador de telecomunicaciones, y actualmente liderando la seguridad de aplicaciones en una plataforma tecnológica líder. Esta trayectoria diversa me da una perspectiva única que combina habilidades ofensivas con una comprensión profunda de cómo los equipos de ingeniería construyen y despliegan software.',
-  'about.bio3': 'Me apasiona aprovechar la IA para mejorar los resultados de ciberseguridad. Como pentester certificado en IA/ML, utilizo herramientas como Claude Code y agentes de IA personalizados para ofrecer evaluaciones de seguridad más rápidas y exhaustivas.',
+  'about.bio': 'Soy Julio Martinez, Ingeniero de Seguridad en Málaga, España, con 8+ años de experiencia práctica asegurando productos digitales para empresas tecnológicas líderes. Me especializo en pentesting, consultoría de seguridad e integración de la seguridad en el ciclo de desarrollo.',
+  'about.bio2': 'Mi carrera me ha llevado desde la gestión de identidades en el sector defensa hasta la seguridad ofensiva en una consultora IT global, gestión de vulnerabilidades en un gran operador de telecomunicaciones, y actualmente como Ingeniero de Seguridad Senior en una plataforma tecnológica líder. Esta trayectoria diversa me da una perspectiva única que combina habilidades ofensivas con una comprensión profunda de cómo los equipos de ingeniería construyen y despliegan software.',
+  'about.bio3': 'Utilizo la IA como multiplicador de fuerza, no como atajo. Como pentester certificado en IA/ML, aprovecho herramientas como Claude Code y agentes de IA personalizados para reducir tiempos y ampliar la cobertura, pero cada hallazgo, cada informe y cada recomendación está verificado y validado por mí. Sin contenido generado automáticamente ni relleno — solo resultados de alto impacto respaldados por experiencia humana.',
 
   // Experience
   'experience.title': 'Experiencia',
-  'experience.freepik.role': 'Security Engineer',
-  'experience.freepik.period': '2022 - Presente',
-  'experience.freepik.desc': 'Liderando seguridad de aplicaciones, gestión de bug bounty, evaluaciones de seguridad cloud y desarrollo de herramientas de seguridad internas.',
-  'experience.orange.role': 'Vulnerability Manager',
-  'experience.orange.period': '2018 - 2022',
-  'experience.orange.desc': 'Gestión integral de vulnerabilidades, integración de SAST/DAST en pipelines CI/CD, revisiones de diseño seguro para proyectos AWS.',
-  'experience.r3.role': 'Senior Cybersecurity Consultant',
-  'experience.r3.period': '2018',
-  'experience.r3.desc': 'Pentesting, mentoría de profesionales junior, desarrollo de Planes Directores basados en ISO 27001.',
-  'experience.minsait.role': 'Tiger Team Pentester',
-  'experience.minsait.period': '2017 - 2018',
-  'experience.minsait.desc': 'Pentesting de aplicaciones web, móviles, APIs y escritorio. Diseño de ejercicios CTF para formación Red Team y simulación adversarial.',
-  'experience.gmv.role': 'Ingeniero de Ciberseguridad e Infraestructura',
-  'experience.gmv.period': '2015 - 2017',
-  'experience.gmv.desc': 'Consultoría de gestión de identidades (SAML), infraestructura de correo seguro, buenas prácticas de autenticación y federación.',
+  'experience.techplatform.role': 'Ingeniero de Seguridad',
+  'experience.techplatform.period': '2022 - Actualidad',
+  'experience.techplatform.desc': 'Seguridad de aplicaciones, gestión de bug bounty, evaluaciones de seguridad cloud y desarrollo de herramientas de seguridad internas.',
+  'experience.telecom.role': 'Gestor de Vulnerabilidades',
+  'experience.telecom.period': '2018 - 2022',
+  'experience.telecom.desc': 'Gestión integral de vulnerabilidades, integración de SAST/DAST en pipelines CI/CD, revisiones de diseño seguro para proyectos AWS.',
+  'experience.consultancy.role': 'Consultor Senior de Ciberseguridad',
+  'experience.consultancy.period': '2018',
+  'experience.consultancy.desc': 'Pentesting, mentoría de profesionales junior, desarrollo de Planes Directores basados en ISO 27001.',
+  'experience.globalit.role': 'Pentester de Seguridad Ofensiva',
+  'experience.globalit.period': '2017 - 2018',
+  'experience.globalit.desc': 'Pentesting de aplicaciones web, móviles, APIs y escritorio. Diseño de ejercicios CTF para formación Red Team y simulación adversarial.',
+  'experience.defense.role': 'Ingeniero de Ciberseguridad e Infraestructura',
+  'experience.defense.period': '2015 - 2017',
+  'experience.defense.desc': 'Consultoría de gestión de identidades (SAML), infraestructura de correo seguro, buenas prácticas de autenticación y federación.',
 
   // Certifications
   'certs.title': 'Certificaciones',
