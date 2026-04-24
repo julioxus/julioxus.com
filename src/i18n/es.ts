@@ -116,7 +116,6 @@ export default {
   'contact.service.other': 'Otro',
   'contact.message': 'Mensaje',
   'contact.send': 'Enviar Mensaje',
-  'contact.or': 'O contacta directamente en',
 
   // Footer
   'footer.rights': 'Todos los derechos reservados.',
